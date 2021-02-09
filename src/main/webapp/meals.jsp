@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html lang="ru">
 <head>
@@ -15,9 +16,11 @@
         <th>Description</th>
         <th>Calories</th>
     </tr>
-    <c:forEach var="ObjMeal" items="${request.getAttribute(\"list\")}">
-        <tr>
-            <td><c:out value="${ObjMeal.getDateTime}"/></td>
+    <c:forEach items="${allMeals}" var="ObjMeal">
+        <tr style="${ObjMeal.getExcess() == true ? 'background-color: red':'background-color: green'}">
+            <td>${ObjMeal.dateTime()} </td>
+            <td>${ObjMeal.getDescription()}</td>
+            <td>${ObjMeal.getCalories()}</td>
         </tr>
     </c:forEach>
 </table>
