@@ -16,11 +16,11 @@
         <th>Description</th>
         <th>Calories</th>
     </tr>
-    <c:forEach items="${allMeals}" var="ObjMeal">
-        <tr style="${ObjMeal.getExcess() == true ? 'background-color: red':'background-color: green'}">
-            <td>${ObjMeal.dateTime()} </td>
-            <td>${ObjMeal.getDescription()}</td>
-            <td>${ObjMeal.getCalories()}</td>
+    <c:forEach items="${meals}" var="meal">
+        <tr style="${meal.getExcess() ? 'background-color: red':'background-color: green'}">
+            <td>${meal.getDateTime()} </td>
+            <td>${meal.getDescription()}</td>
+            <td>${meal.getCalories()}</td>
         </tr>
     </c:forEach>
 </table>
