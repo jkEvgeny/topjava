@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.javawebinar.topjava.model.MealTo;
 import ru.javawebinar.topjava.util.MealsUtil;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ public class MealServlet extends HttpServlet {
         request.setAttribute("meals", meals);
         request.getRequestDispatcher("/meals.jsp").forward(request, response);
     }
+
     private static final Logger logger = LoggerFactory.getLogger(
             MealServlet.class);
 }
