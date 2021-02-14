@@ -6,11 +6,13 @@ import ru.javawebinar.topjava.util.MealsUtil;
 
 import java.util.Collection;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class InMemoryMealRepository implements MealRepository {
-    private final Map<Integer, Meal> repository = new ConcurrentHashMap<>();
+    public Map<Integer, Meal> repository() {
+        return repository;
+    }
+
     private final AtomicInteger counter = new AtomicInteger(0);
 
     {
