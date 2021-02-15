@@ -22,19 +22,6 @@ public class SpringMain {
             InMemoryUserRepository userRepository = new InMemoryUserRepository();
             Logger log = LoggerFactory.getLogger(InMemoryUserRepository.class);
 
-            User us = new User(null, "Misha", "2@2.ru", "222", Role.USER);
-            User us1 = new User(null, "Oleg", "1@1.ru", "111", Role.USER);
-            User us2 = new User(null, "Alex", "3@3.ru", "333", Role.USER);
-            User us3 = new User(null, "Alex", "4@4.ru", "333", Role.USER);
-
-            userRepository.save(us1);
-            userRepository.save(us);
-            userRepository.save(us2);
-            userRepository.save(us3);
-
-            log.info(String.valueOf(userRepository.getByEmail("2@2.ru")));
-
-            System.out.println();
         }
     }
 }
