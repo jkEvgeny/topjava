@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import ru.javawebinar.topjava.model.User;
 
 import java.util.Collection;
-import java.util.List;
 
 @Controller
 public class AdminRestController extends AbstractUserController {
@@ -35,7 +34,7 @@ public class AdminRestController extends AbstractUserController {
     }
 
     @Override
-    public List<User> getByMail(String email) {
+    public User getByMail(String email) {
         return super.getByMail(email);
     }
 }

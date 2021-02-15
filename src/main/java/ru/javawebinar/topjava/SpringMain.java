@@ -21,7 +21,6 @@ public class SpringMain {
 
             InMemoryUserRepository userRepository = new InMemoryUserRepository();
             Logger log = LoggerFactory.getLogger(InMemoryUserRepository.class);
-
         }
     }
 }

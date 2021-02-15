@@ -30,7 +30,7 @@ public class UserService {
         return checkNotFoundWithId(repository.get(id), id);
     }
 
-    public List<User> getByEmail(String email) {
+    public User getByEmail(String email) {
         return checkNotFound(repository.getByEmail(email), "email=" + email);
     }
 

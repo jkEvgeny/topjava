@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 
 @Repository
 public class InMemoryUserRepository implements UserRepository {
-    private final Map<Integer, User> userRepository = new ConcurrentHashMap<>();
     private static final Logger log = LoggerFactory.getLogger(InMemoryUserRepository.class);
+    private final Map<Integer, User> userRepository = new ConcurrentHashMap<>();
     private final AtomicInteger counter = new AtomicInteger(0);
 
     @Override
@@ -51,10 +51,10 @@ public class InMemoryUserRepository implements UserRepository {
     }
 
     @Override
-    public List<User> getByEmail(String email) {
+    public User getByEmail(String email) {
         log.info("getByEmail {}");
         return userRepository.values().stream()
                 .filter(p -> p.getEmail().equals(email))
-                .collect(Collectors.toList());
+                .findFirst().get();
     }
 }

@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.service.MealService;
 
+import java.time.LocalTime;
 import java.util.Collection;
 
 import static ru.javawebinar.topjava.util.ValidationUtil.assureIdConsistent;
 import static ru.javawebinar.topjava.util.ValidationUtil.checkNew;
 
 public class MealRestController {
-    protected final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private MealService service;
@@ -20,6 +21,11 @@ public class MealRestController {
     public Collection<Meal> getAll() {
         log.info("getAll");
         return service.getAll();
+    }
+
+    public Collection<Meal> getFilteredAll( LocalTime startTime, LocalTime endTime) {
+        log.info("getAll");
+        return service.getFilteredAll(startTime,endTime);
     }
 
     public Meal get(int id) {
