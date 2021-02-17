@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.service.MealService;
+import ru.javawebinar.topjava.to.MealTo;
 
 import java.time.LocalTime;
 import java.util.Collection;
@@ -18,19 +19,19 @@ public class MealRestController {
     @Autowired
     private MealService service;
 
-    public Collection<Meal> getAll() {
+    public Collection<MealTo> getAll(int userId) {
         log.info("getAll");
-        return service.getAll();
+        return service.getAll(userId);
     }
 
-    public Collection<Meal> getFilteredAll( LocalTime startTime, LocalTime endTime) {
+    public Collection<MealTo> getFilteredAll(int userId, LocalTime startTime, LocalTime endTime) {
         log.info("getAll");
-        return service.getFilteredAll(startTime,endTime);
+        return service.getFilteredAll(userId, startTime,endTime);
     }
 
-    public Meal get(int id) {
+    public Meal get(int id, int userId) {
         log.info("get {}", id);
-        return service.get(id);
+        return service.get(id, userId);
     }
 
     public Meal create(Meal meal) {

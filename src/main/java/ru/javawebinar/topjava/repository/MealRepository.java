@@ -3,8 +3,6 @@ package ru.javawebinar.topjava.repository;
 import ru.javawebinar.topjava.model.Meal;
 
 import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public interface MealRepository {
     // null if updated meal do not belong to userId
@@ -17,7 +15,9 @@ public interface MealRepository {
     Meal get(int id);
 
     // ORDERED dateTime desc
-    Collection<Meal> getAll();
+    Collection<Meal> getAll(int userId);
 
-    Map<Integer, Meal> repository = new ConcurrentHashMap<>();
+    //Map<Integer, Map<Integer, Meal>> userIdRepository = new ConcurrentHashMap<>();
+
+
 }
