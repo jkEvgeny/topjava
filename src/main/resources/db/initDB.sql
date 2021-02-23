@@ -31,9 +31,8 @@ CREATE TABLE meals
 (
     id               INTEGER PRIMARY KEY DEFAULT nextval('meals_seq'),
     dateTime         TIMESTAMP                               NOT NULL,
-    description      VARCHAR                                 NOT NULL,
-    calories         INTEGER             DEFAULT 2000        NOT NULL,
-    excess           BOOL                DEFAULT FALSE       NOT NULL,
-    user_id          INTEGER
+    description      TEXT                                    NOT NULL,
+    calories         INTEGER                                 NOT NULL,
+    user_id          INTEGER                                 NOT NULL
 );
 CREATE UNIQUE INDEX meals_unique_dateTime_idx ON meals (dateTime, user_id);

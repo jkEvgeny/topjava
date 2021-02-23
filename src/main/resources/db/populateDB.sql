@@ -1,6 +1,9 @@
-DELETE FROM user_roles;
-DELETE FROM users;
-DELETE FROM meals;
+DELETE
+FROM user_roles;
+DELETE
+FROM users;
+DELETE
+FROM meals;
 ALTER SEQUENCE global_seq RESTART WITH 100000;
 ALTER SEQUENCE meals_seq RESTART WITH 200000;
 
@@ -13,13 +16,13 @@ INSERT INTO user_roles (role, user_id)
 VALUES ('USER', 100000),
        ('ADMIN', 100001);
 
-INSERT INTO meals ( datetime, description, calories)
-VALUES (now(), 'Завтрак', 500),
-       (now()+'1 minute', 'Обед', 1000),
-       (now()+'2 minute', 'Ужин', 500),
-       (now()+'3 minute','Еда на граничное значение', 100),
-       (now()+'4 minute','Завтрак', 1000),
-       (now()+'5 minute','Обед', 500),
-       (now()+'6 minute','Ужин', 410),
-       (now()+'2 minute','Админ ланч', 510),
-       (now()+'3 minute','Админ ужин', 1500);
+INSERT INTO meals (datetime, description, calories, user_id)
+VALUES ('2020-01-30 10:00:00', 'Завтрак', 500, 100000),
+       ('2020-01-30 13:00:00', 'Обед', 1000, 100000),
+       ('2020-01-30 20:00:00', 'Ужин', 500, 100000),
+       ('2020-01-31 10:00:00', 'Еда на граничное значение', 100, 100000),
+       ('2020-01-31 13:00:00', 'Завтрак', 1000, 100000),
+       ('2020-01-31 20:00:00', 'Обед', 500, 100000),
+       ('2020-01-31 14:00:00', 'Ужин', 410, 100000),
+       ('2020-01-31 14:00:00', 'Админ ланч', 510, 100001),
+       ('2020-01-31 20:00:00', 'Админ ужин', 1500, 100001);
