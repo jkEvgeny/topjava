@@ -154,7 +154,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
+            <version>42.2.18</version>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>

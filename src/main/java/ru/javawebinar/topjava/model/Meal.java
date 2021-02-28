@@ -7,7 +7,7 @@ import javax.persistence.UniqueConstraint;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-
+@Table(name="meals", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","data_time"}, name = "meals_unique_user_datetime_idx")})
 public class Meal extends AbstractBaseEntity {
     private LocalDateTime dateTime;
 
